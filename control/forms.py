@@ -4,6 +4,7 @@ from control.models import Converter
 
 
 class ConverterForm(ModelForm):
+
     class Meta:
         model = Converter
-        fields = ['unit', 'unit_to', 'unit_value']
+        fields = ['unit', 'unit_value', 'unit_to', ]
