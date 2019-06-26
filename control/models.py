@@ -14,6 +14,6 @@ unit_choices = [("metre", "Metre"),
 
 class Converter(models.Model):
 
-    unit = models.CharField(null=True, blank=True, max_length=15, choices=unit_choices)
-    unit_to = models.CharField(null=True, blank=True, max_length=15, choices=unit_choices)
-    unit_value = models.FloatField(null=True, blank=True)
+    unit = models.CharField(null=True, blank=False, max_length=15, choices=unit_choices)
+    unit_to = models.CharField(null=True, blank=False, max_length=15, choices=unit_choices)
+    unit_value = models.FloatField(null=True, blank=False)
