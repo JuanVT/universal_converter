@@ -21,11 +21,7 @@ def home(request):
 
     result = 0
 
-    if request.method == 'GET':
-
-        form = ConverterForm()
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
 
         filled_form = ConverterForm(request.POST)
 
@@ -38,6 +34,10 @@ def home(request):
 
             calculations = form.cleaned_data['unit_value'] * metre_values[unit] / metre_values[unit_to]
             result = '{} {} are {} {}'.format(unit_value, unit, calculations, unit_to)
+
+    else:
+
+        form = ConverterForm()
 
     context = {'form': form, 'result': result}
 
