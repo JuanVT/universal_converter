@@ -25,6 +25,6 @@ unit_choices = [("metre", "Metre"),
 
 class ConverterForm(forms.Form):
 
-    unit = forms.ChoiceField(label='Unit', choices='unit_choices', initial='', widget=forms.Select(), required=True)
-    unit_to = forms.ChoiceField(label='Unit to', choices='unit_choices', initial='', widget=forms.Select(), required=True)
-    unit_value = forms.FloatField()
+    unit = forms.ChoiceField(label='Unit', choices=unit_choices)
+    unit_to = forms.ChoiceField(label='Unit to', choices=unit_choices)
+    unit_value = forms.FloatField(initial=0)
