@@ -1,16 +1,5 @@
 from django import forms
 
-
-# from control.models import Converter
-#
-#
-# class ConverterForm(ModelForm):
-#
-#     class Meta:
-#         model = Converter
-#         fields = ['unit', 'unit_value', 'unit_to', ]
-from django.utils.regex_helper import Choice
-
 length_choices = [("metre", "Metre"),
                   ("kilometre", "Kilometre"),
                   ("centimetre", "Centimetre"),
@@ -34,10 +23,11 @@ volume_choices = [("gallon", "Gallons"),
                   ("quart", "Quarts"),
                   ("ounce", "Ounces"),
                   ("litre", "Litres"),
-                  ("tablespoon", "Tablespoon"),
-                  ("teaspoon", "Teaspoon"),
+                  ("tablespoon", "Tablespoons"),
+                  ("pint", "Pints"),
+                  ("teaspoon", "Teaspoons"),
                   ("cubic inches", "Cubic Inches"),
-                  ("milliliter", "milliliters"),
+                  ("milliliter", "ml"),
                   ("cubic centimeter", "Cubic Centimeters"),
                   ("cubic meter", "Cubic Meter")]
 

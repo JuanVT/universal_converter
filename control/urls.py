@@ -17,10 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from control.views import home, volume_converter
+from control.views import home, volume_converter, length_converter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^volume_converter/$', volume_converter, name='volume_converter'),
+    url(r'^length_converter/$', length_converter, name='length_converter'),
 ]

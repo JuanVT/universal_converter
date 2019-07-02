@@ -3,6 +3,15 @@ from django.template import loader
 
 from control.forms import LengthConverter, VolumeConverter
 
+
+def home(request):
+
+    context = {}
+
+    template = loader.get_template('control/home.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
 metre_values = {
     'kilometre': 1000.0,
     'metre': 1.0,
@@ -17,7 +26,7 @@ metre_values = {
 }
 
 
-def home(request):
+def length_converter(request):
 
     result = 0
 
@@ -33,7 +42,7 @@ def home(request):
             unit_value = form.cleaned_data['unit_value']
 
             calculations = unit_value * metre_values[unit] / metre_values[unit_to]
-            result = '{} {} are {} {}'.format(unit_value, unit, calculations, unit_to)
+            result = '{} {}s'.format(calculations, unit_to)
 
     else:
 
@@ -41,7 +50,7 @@ def home(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/home.html')
+    template = loader.get_template('control/length_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
@@ -53,7 +62,7 @@ volume_values = {
     'litre': 1,
     'cups': 4.226753,
     'tablespoon': 67.628045,
-    'tea spoon': 202.884136,
+    'teaspoon': 202.884136,
     'cubic inches': 61.023744,
     'cubic feet': 0.035315,
     'cubic yard': 0.001308,
