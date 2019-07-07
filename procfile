@@ -1,1 +1,1 @@
-web: gunicorn universalconverter.wsgia
+web: gunicorn universalconverter.wsgi
