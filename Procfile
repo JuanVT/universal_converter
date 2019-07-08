@@ -1,1 +1,1 @@
-web: gunicorn control.wsgi --log-file -
+web: gunicorn universal_converter.wsgi --log-file -
