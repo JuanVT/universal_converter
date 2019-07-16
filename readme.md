@@ -15,7 +15,7 @@ To get this project up and running, please download or clone the repository and 
 ```
 pip install virtualenv
 virtualenv .venv 
-python3 .venv/bin/activate
+. .venv/bin/activate
 ```
 
 * Install Requirements:
@@ -28,11 +28,11 @@ pip install -r requirements.txt
 
 ### Run migrations for the SQL DB models
 ```
-python3 manage.py migrate
+. manage.py migrate
 ```
 ### Run the application
 ```
-python3 manage.py runserver
+. manage.py runserver
 ```
 
 ## Built With
