@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 
-from control.forms import LengthConverter, VolumeConverter
+from control.forms import LengthConverter, VolumeConverter, TimeConverter
 
 
 def home(request):
@@ -97,4 +97,48 @@ def volume_converter(request):
     context = {'form': form, 'result': result}
 
     template = loader.get_template('control/volume_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+time_values = {
+    'nanosecond': 10 ** -9,
+    'microsecond': 1 ** -6,
+    'millisecond': 0.001,
+    'second': 1,
+    'minute': 60,
+    'hour': 3600,
+    'day': 86400,
+    'week': 604800,
+    'month': 2628000,
+    'year': 31556952,
+    'decade': 315569520,
+    'century': 3155695200,
+}
+
+
+def time_converter(request):
+
+    result = 0
+
+    if request.method == 'POST':
+
+        filled_form = TimeConverter(request.POST)
+
+        if filled_form.is_valid():
+
+            form = filled_form
+            unit = form.cleaned_data['unit']
+            unit_to = form.cleaned_data['unit_to']
+            unit_value = form.cleaned_data['unit_value']
+
+            calculations = unit_value * time_values[unit] / time_values[unit_to]
+            result = '{} {}s'.format(calculations, unit_to)
+
+    else:
+
+        form = TimeConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/time_converter.html')
     return HttpResponse(template.render(request=request, context=context))

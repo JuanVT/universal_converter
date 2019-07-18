@@ -37,3 +37,24 @@ class VolumeConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=volume_choices)
     unit_to = forms.ChoiceField(label='Unit to', choices=volume_choices)
     unit_value = forms.FloatField(initial=0)
+
+
+time_choices = [('nanosecond', 'Nanosecond'),
+                ('microsecond', 'Microsecond'),
+                ('millisecond', 'Millisecond'),
+                ('second', 'Second'),
+                ('minute', 'Minute'),
+                ('hour', 'Hour'),
+                ('day', 'Day'),
+                ('week', 'Week'),
+                ('month', 'Month'),
+                ('year', 'Year'),
+                ('decade', 'Decade'),
+                ('century', 'Century')]
+
+
+class TimeConverter(forms.Form):
+
+    unit = forms.ChoiceField(label='Unit', choices=time_choices)
+    unit_to = forms.ChoiceField(label='Unit to', choices=time_choices)
+    unit_value = forms.FloatField(initial=0)
