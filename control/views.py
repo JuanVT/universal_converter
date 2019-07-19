@@ -31,11 +31,9 @@ def length_converter(request):
     result = 0
 
     if request.method == 'POST':
-
         filled_form = LengthConverter(request.POST)
 
         if filled_form.is_valid():
-
             form = filled_form
             unit = form.cleaned_data['unit']
             unit_to = form.cleaned_data['unit_to']
@@ -45,7 +43,6 @@ def length_converter(request):
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
-
         form = LengthConverter()
 
     context = {'form': form, 'result': result}
@@ -77,11 +74,9 @@ def volume_converter(request):
     result = 0
 
     if request.method == 'POST':
-
         filled_form = VolumeConverter(request.POST)
 
         if filled_form.is_valid():
-
             form = filled_form
             unit = form.cleaned_data['unit']
             unit_to = form.cleaned_data['unit_to']
@@ -91,7 +86,6 @@ def volume_converter(request):
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
-
         form = VolumeConverter()
 
     context = {'form': form, 'result': result}
@@ -121,11 +115,9 @@ def time_converter(request):
     result = 0
 
     if request.method == 'POST':
-
         filled_form = TimeConverter(request.POST)
 
         if filled_form.is_valid():
-
             form = filled_form
             unit = form.cleaned_data['unit']
             unit_to = form.cleaned_data['unit_to']
@@ -135,7 +127,6 @@ def time_converter(request):
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
-
         form = TimeConverter()
 
     context = {'form': form, 'result': result}
