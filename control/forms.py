@@ -61,3 +61,13 @@ class TimeConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=time_choices)
     unit_to = forms.ChoiceField(label='Unit to', choices=time_choices)
     unit_value = forms.FloatField(initial=0)
+
+
+currency_choices = [
+]
+
+
+class CurrencyConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=currency_choices)
+    unit_to = forms.ChoiceField(label='Unit to', choices=currency_choices)
+    unit_value = forms.FloatField(initial=0)

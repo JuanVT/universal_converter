@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from control.views import home, volume_converter, length_converter, time_converter
+from control.views import home, volume_converter, length_converter, time_converter, currency_converter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^volume_converter/$', volume_converter, name='volume_converter'),
     url(r'^length_converter/$', length_converter, name='length_converter'),
     url(r'^time_converter/$', time_converter, name='time_converter'),
+    url(r'^currency_converter/$', currency_converter, name='currency_converter'),
 ]

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 
-from control.forms import LengthConverter, VolumeConverter, TimeConverter
+from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter
 
 
 def home(request):
@@ -128,6 +128,31 @@ def time_converter(request):
 
     else:
         form = TimeConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/time_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+def currency_converter(request):
+
+    result = 0
+
+    if request.method == 'POST':
+        filled_form = TimeConverter(request.POST)
+
+        if filled_form.is_valid():
+            form = filled_form
+            unit = form.cleaned_data['unit']
+            unit_to = form.cleaned_data['unit_to']
+            unit_value = form.cleaned_data['unit_value']
+
+            calculations = unit_value * time_values[unit] / time_values[unit_to]
+            result = '{} {}s'.format(calculations, unit_to)
+
+    else:
+        form = CurrencyConverter()
 
     context = {'form': form, 'result': result}
 
