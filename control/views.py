@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+import requests
 
 from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter
 
@@ -140,17 +141,20 @@ def currency_converter(request):
     result = 0
 
     if request.method == 'POST':
-        filled_form = TimeConverter(request.POST)
+        filled_form = CurrencyConverter(request.POST)
 
         if filled_form.is_valid():
             form = filled_form
-            unit = form.cleaned_data['unit']
-            unit_to = form.cleaned_data['unit_to']
+            unit = form.cleaned_data['unit'].upper()
+            unit_to = form.cleaned_data['unit_to'].upper()
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * time_values[unit] / time_values[unit_to]
-            result = '{} {}s'.format(calculations, unit_to)
+            url = 'https://api.exchangeratesapi.io/latest?base='+unit
+            currency_values = requests.get(url).json()
+            currency_value = currency_values['rates'][unit_to]
 
+            calculations = unit_value * currency_value
+            result = '{} {}'.format(calculations, unit_to)
     else:
         form = CurrencyConverter()
 
