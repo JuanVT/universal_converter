@@ -6,7 +6,6 @@ from control.forms import LengthConverter, VolumeConverter, TimeConverter, Curre
 
 
 def home(request):
-
     context = {}
 
     template = loader.get_template('control/home.html')
@@ -28,7 +27,6 @@ metre_values = {
 
 
 def length_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -48,7 +46,7 @@ def length_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/length_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
@@ -71,7 +69,6 @@ volume_values = {
 
 
 def volume_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -91,7 +88,7 @@ def volume_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/volume_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
@@ -112,7 +109,6 @@ time_values = {
 
 
 def time_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -132,12 +128,11 @@ def time_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/time_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
 def currency_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -160,5 +155,5 @@ def currency_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/time_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
