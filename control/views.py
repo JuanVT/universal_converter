@@ -1,11 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
+import requests
 
-from control.forms import LengthConverter, VolumeConverter, TimeConverter
+from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter
 
 
 def home(request):
-
     context = {}
 
     template = loader.get_template('control/home.html')
@@ -27,7 +27,6 @@ metre_values = {
 
 
 def length_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -47,7 +46,7 @@ def length_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/length_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
@@ -70,7 +69,6 @@ volume_values = {
 
 
 def volume_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -90,7 +88,7 @@ def volume_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/volume_converter.html')
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
 
 
@@ -111,7 +109,6 @@ time_values = {
 
 
 def time_converter(request):
-
     result = 0
 
     if request.method == 'POST':
@@ -131,5 +128,32 @@ def time_converter(request):
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/time_converter.html')
+    template = loader.get_template('control/generic_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+def currency_converter(request):
+    result = 0
+
+    if request.method == 'POST':
+        filled_form = CurrencyConverter(request.POST)
+
+        if filled_form.is_valid():
+            form = filled_form
+            unit = form.cleaned_data['unit'].upper()
+            unit_to = form.cleaned_data['unit_to'].upper()
+            unit_value = form.cleaned_data['unit_value']
+
+            url = 'https://api.exchangeratesapi.io/latest?base='+unit
+            currency_values = requests.get(url).json()
+            currency_value = currency_values['rates'][unit_to]
+
+            calculations = unit_value * currency_value
+            result = '{} {}'.format(calculations, unit_to)
+    else:
+        form = CurrencyConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/generic_converter.html')
     return HttpResponse(template.render(request=request, context=context))
