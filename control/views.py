@@ -144,15 +144,17 @@ def currency_converter(request):
             unit_to = form.cleaned_data['unit_to'].upper()
             unit_value = form.cleaned_data['unit_value']
 
+            url = 'https://api.exchangeratesapi.io/latest?base=' + unit
+            currency_values = requests.get(url).json()
+
             try:
-                url = 'https://api.exchangeratesapi.io/latest?base='+unit
-                currency_values = requests.get(url).json()
                 currency_value = currency_values['rates'][unit_to]
-                calculations = unit_value * currency_value
-                result = '{} {}'.format(calculations, unit_to)
 
             except KeyError:
-                result = '{} {}'.format(unit_value, unit_to)
+                currency_value = 1
+
+            calculations = unit_value * currency_value
+            result = '{} {}'.format(calculations, unit_to)
     else:
         form = CurrencyConverter()
 
