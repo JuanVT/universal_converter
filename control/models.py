@@ -1,19 +1,11 @@
-# from django.db import models
-#
-# unit_choices = [("metre", "Metre"),
-#                 ("kilometre", "Kilometre"),
-#                 ("centimetre", "Centimetre"),
-#                 ("millimetre", "Millimetre"),
-#                 ("micrometre", "Micrometre"),
-#                 ("nanometre", "Nanometre"),
-#                 ("mile", "Mile"),
-#                 ("yard", "Yard"),
-#                 ("foot", "Foot"),
-#                 ("inch", "Inch")]
-#
-#
-# class Converter(models.Model):
-#
-#     unit = models.CharField(null=True, blank=False, max_length=15, choices=unit_choices)
-#     unit_to = models.CharField(null=True, blank=False, max_length=15, choices=unit_choices)
-#     unit_value = models.FloatField(null=True, blank=False)
+from django.db import models
+
+
+class Currency(models.Model):
+    code = models.CharField(max_length=3)
+    name = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'currency'
+        verbose_name_plural = 'currencies'
