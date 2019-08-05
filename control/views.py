@@ -153,8 +153,9 @@ def currency_converter(request):
             except KeyError:
                 currency_value = 1
 
-            calculations = unit_value * currency_value
-            result = '{} {}'.format(calculations, unit_to)
+            finally:
+                calculations = unit_value * currency_value
+                result = '{} {}'.format(calculations, unit_to)
     else:
         form = CurrencyConverter()
 
