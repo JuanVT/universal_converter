@@ -73,3 +73,16 @@ class CurrencyConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=currency_choices)
     unit_to = forms.ChoiceField(label='Unit to', choices=currency_choices)
     unit_value = forms.FloatField(initial=0)
+
+
+temperature_choices = [
+    ('celsius', 'Celsius'),
+    ('kelvin', 'Kelvin'),
+    ('fahrenheit', 'Fahrenheit')
+]
+
+
+class TemperatureConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=temperature_choices)
+    unit_to = forms.ChoiceField(label='Unit to', choices=temperature_choices)
+    unit_value = forms.FloatField(initial=0)

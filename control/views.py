@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 import requests
 
-from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter
+from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter, TemperatureConverter
 
 
 def home(request):
@@ -158,6 +158,55 @@ def currency_converter(request):
                 result = '{} {}'.format(calculations, unit_to)
     else:
         form = CurrencyConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/generic_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+def temperature_converter(request):
+    result = 0
+
+    if request.method == 'POST':
+        filled_form = TemperatureConverter(request.POST)
+
+        if filled_form.is_valid():
+            form = filled_form
+            unit = form.cleaned_data['unit']
+            unit_to = form.cleaned_data['unit_to']
+            unit_value = form.cleaned_data['unit_value']
+
+            calculations = unit_value
+
+            if unit == 'celsius':
+                if unit_to == 'fahrenheit':
+                    calculations = 9 / 5 * unit_value + 32
+
+                elif unit_to == 'kelvin':
+                    calculations = unit_value + 273.15
+
+                elif unit_to == 'fahrenheit':
+                    calculations = (unit_value - 32) * 5 / 9
+
+            elif unit == 'fahrenheit':
+                if unit_to == 'celsius':
+                    calculations = (unit_value - 32) * 5 / 9
+
+                elif unit_to == 'kelvin':
+                    calculations = (unit_value + 459.67) * 5 / 9
+
+            elif unit == 'kelvin':
+                if unit_to == 'celsius':
+                    calculations = unit_value - 273.15
+
+                elif unit_to == 'fahrenheit':
+                    calculations = (unit_value * 9 / 5) - 459.67
+
+            result = '{} {}'.format(calculations, unit_to)
+
+    else:
+        form = TemperatureConverter()
 
     context = {'form': form, 'result': result}
 
