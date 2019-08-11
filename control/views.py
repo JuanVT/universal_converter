@@ -181,17 +181,17 @@ def temperature_converter(request):
 
             if unit == 'celsius':
                 if unit_to == 'fahrenheit':
-                    calculations = 9.0 / 5.0 * unit_value + 32
+                    calculations = 9 / 5 * unit_value + 32
 
                 elif unit_to == 'kelvin':
                     calculations = unit_value + 273.15
 
                 elif unit_to == 'fahrenheit':
-                    calculations = (unit_value - 32) * 5.0 / 9.0
+                    calculations = (unit_value - 32) * 5 / 9
 
             elif unit == 'fahrenheit':
                 if unit_to == 'celsius':
-                    calculations = (unit_value - 32) * 5.0 / 9.0
+                    calculations = (unit_value - 32) * 5 / 9
 
                 elif unit_to == 'kelvin':
                     calculations = (unit_value + 459.67) * 5 / 9
@@ -201,7 +201,7 @@ def temperature_converter(request):
                     calculations = unit_value - 273.15
 
                 elif unit_to == 'fahrenheit':
-                    calculations = (unit_value * 9/5) - 459.67
+                    calculations = (unit_value * 9 / 5) - 459.67
 
             result = '{} {}'.format(calculations, unit_to)
 
