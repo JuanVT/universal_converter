@@ -66,8 +66,7 @@ class TimeConverter(forms.Form):
 
 
 class CurrencyConverter(forms.Form):
-    # currencies = Currency.objects.all()
-    currencies = list
+    currencies = Currency.objects.all()
     currency_choices = [(currency.code, currency.name) for currency in currencies]
 
     unit = forms.ChoiceField(label='Unit', choices=currency_choices)
