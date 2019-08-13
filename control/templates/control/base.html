@@ -111,6 +111,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src={% static "js/sb-admin.min.js" %}></script>
+<<<<<<< HEAD
 {% block extra_js %}
     <script>
     $(document).ready(function () {
@@ -126,6 +127,27 @@
         $this.data("prev", $this.val());
     });
 
+});
+    </script>
+{% endblock %}
+=======
+
+{% block extra_js %}
+    <script>
+    $("#buttonswapper").click(function(e) {
+    e.preventDefault();//This prevents the A tag from causing a page reload
+
+    //Get the values
+    var fromVal = $("#id_unit option:selected").val();
+    var fromText = $("#id_unit option:selected").text();
+    var toVal = $("#id_unit_to option:selected").val();
+    var toText = $("#id_unit_to option:selected").text();
+
+    //Set the values
+    $("#id_unit option:selected").val(toVal);
+    $("#id_unit option:selected").text(toText);
+    $("#id_unit_to option:selected").val(fromVal);
+    $("#id_unit_to option:selected").text(fromText);
 });
     </script>
 {% endblock %}
