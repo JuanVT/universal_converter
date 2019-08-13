@@ -203,12 +203,19 @@ def temperature_converter(request):
                 elif unit_to == 'fahrenheit':
                     calculations = (unit_value * 9 / 5) - 459.67
 
-            result = '{} {}'.format(calculations, unit_to)
+            if unit == 'select..':
+                result = ''
+
+            elif unit_to == 'select..':
+                result = ''
+
+            else:
+                result = '{} {}'.format(calculations, unit_to)
 
     else:
         form = TemperatureConverter()
 
     context = {'form': form, 'result': result}
 
-    template = loader.get_template('control/generic_converter.html')
+    template = loader.get_template('control/temperature_converter.html')
     return HttpResponse(template.render(request=request, context=context))
