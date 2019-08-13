@@ -84,5 +84,5 @@ temperature_choices = [
 
 class TemperatureConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=temperature_choices)
-    unit_to = forms.ChoiceField(label='Unit to', choices=temperature_choices, initial='choose')
+    unit_to = forms.ChoiceField(label='Unit to', choices=temperature_choices)
     unit_value = forms.FloatField(initial=0)
