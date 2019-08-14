@@ -70,7 +70,7 @@ class TimeConverter(forms.Form):
 
 class CurrencyConverter(forms.Form):
     currencies = Currency.objects.all()
-    currency_choices = [(currency.code, currency.name) for currency in currencies]
+    currency_choices = [('', 'Select..')] + [(currency.code, currency.name) for currency in currencies]
 
     unit = forms.ChoiceField(label='Unit', choices=currency_choices)
     unit_to = forms.ChoiceField(label='Unit to', choices=currency_choices)
