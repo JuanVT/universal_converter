@@ -3,6 +3,7 @@ from django import forms
 from control.models import Currency
 
 length_choices = [
+    ('', 'Select..'),
     ("metre", "Metre"),
     ("kilometre", "Kilometre"),
     ("centimetre", "Centimetre"),
@@ -23,6 +24,7 @@ class LengthConverter(forms.Form):
 
 
 volume_choices = [
+    ('', 'Select..'),
     ("gallon", "Gallons"),
     ("quart", "Quarts"),
     ("ounce", "Ounces"),
@@ -44,6 +46,7 @@ class VolumeConverter(forms.Form):
 
 
 time_choices = [
+    ('', 'Select..'),
     ('nanosecond', 'Nanosecond'),
     ('microsecond', 'Microsecond'),
     ('millisecond', 'Millisecond'),
@@ -75,6 +78,7 @@ class CurrencyConverter(forms.Form):
 
 
 temperature_choices = [
+    ('', 'Select..'),
     ('celsius', 'Celsius'),
     ('kelvin', 'Kelvin'),
     ('fahrenheit', 'Fahrenheit')
