@@ -6,7 +6,7 @@
     {% csrf_token %}
 
 
-    <table class="table">
+    <table class="form-table">
   <thead>
     <tr>
       <th scope="col">Unit</th>
@@ -28,7 +28,7 @@
     </tr>
   </tbody>
 </table>
- <h2 style="text-align: center">{{ result }}</h2>
+ <h2 id="form-table">{{ result }}</h2>
 </form>
 
 {%  endblock %}
