@@ -89,3 +89,16 @@ class TemperatureConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=temperature_choices)
     unit_to = forms.ChoiceField(label='Unit to', choices=temperature_choices)
     unit_value = forms.FloatField(initial=0)
+
+
+weight_choices = [
+    ('', 'Select..'),
+    ('kg', 'Kilograms'),
+    ('g', 'grams'),
+]
+
+
+class WeightConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=weight_choices)
+    unit_to = forms.ChoiceField(label='Unit to', choices=weight_choices)
+    unit_value = forms.FloatField(initial=0)

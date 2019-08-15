@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.template import loader
 import requests
 
-from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter, TemperatureConverter
+from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter, TemperatureConverter, \
+    WeightConverter
 
 
 def home(request):
@@ -208,6 +209,36 @@ def temperature_converter(request):
 
     else:
         form = TemperatureConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/generic_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+weight_values = {
+    'kg': 0.001,
+    'g': 1
+}
+
+
+def weight_converter(request):
+    result = 0
+
+    if request.method == 'POST':
+        filled_form = WeightConverter(request.POST)
+
+        if filled_form.is_valid():
+            form = filled_form
+            unit = form.cleaned_data['unit']
+            unit_to = form.cleaned_data['unit_to']
+            unit_value = form.cleaned_data['unit_value']
+
+            calculations = unit_value * weight_values[unit_to] / weight_values[unit]
+            result = '{} {}'.format(calculations, unit_to)
+
+    else:
+        form = WeightConverter()
 
     context = {'form': form, 'result': result}
 
