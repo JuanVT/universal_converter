@@ -1,0 +1,52 @@
+.form-table{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-table select{
+    box-sizing: border-box;
+    height: 30px;
+    border-color: transparent;
+    background-color: transparent;
+    width: 150px;
+}
+
+.form-table,
+#id_unit_value{
+    border-color: transparent;
+    background-color: transparent;
+    text-align: center;
+}
+
+.form-table th,
+.form-table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.form-table th,
+.form-table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 2px solid #dee2e6;
+}
+
+.form-table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.form-table th:first-child{
+    border-left: 2px solid #dee2e6;
+}
+
+.form-table th:last-child{
+    border-right: 2px solid #dee2e6;
+}
+
+#form-table {
+    text-align: center;
+    font-size:50px;
+}
