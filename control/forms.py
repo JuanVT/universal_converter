@@ -93,8 +93,16 @@ class TemperatureConverter(forms.Form):
 
 weight_choices = [
     ('', 'Select..'),
+    ('tonne', 'Tonne'),
     ('kg', 'Kilograms'),
     ('g', 'grams'),
+    ('mg', 'Milligram'),
+    ('micro gram', 'Micro gram'),
+    ('imperial ton', 'Imperial Ton'),
+    ('us ton', 'US Ton'),
+    ('stone', 'Stone'),
+    ('pound', 'Pound'),
+    ('ounce', 'Ounce'),
 ]
 
 

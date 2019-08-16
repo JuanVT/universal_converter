@@ -217,8 +217,16 @@ def temperature_converter(request):
 
 
 weight_values = {
-    'kg': 0.001,
-    'g': 1
+    'tonne': 10 ** 6,
+    'kg': 1000,
+    'g': 1,
+    'mg': 0.001,
+    'micro gram': 10 ** -6,
+    'imperial ton': 1016046.91,
+    'us ton': 907184.74,
+    'stone': 6350.29,
+    'pound': 453.592,
+    'ounce': 28.349500000294
 }
 
 
@@ -234,7 +242,7 @@ def weight_converter(request):
             unit_to = form.cleaned_data['unit_to']
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * weight_values[unit_to] / weight_values[unit]
+            calculations = unit_value * weight_values[unit] / weight_values[unit_to]
             result = '{} {}'.format(calculations, unit_to)
 
     else:
