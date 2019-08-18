@@ -1,4 +1,9 @@
 {% extends 'control/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link href={% static "css/form.css" %} rel="stylesheet">
+{% endblock %}
 
 {% block content %}
 
