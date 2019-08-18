@@ -17,8 +17,15 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 
-from control.views import home, volume_converter, length_converter, time_converter, currency_converter, \
-    temperature_converter, weight_converter
+from control.views import (
+    home,
+    volume_converter,
+    length_converter,
+    time_converter,
+    currency_converter,
+    temperature_converter,
+    weight_converter,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
