@@ -2,8 +2,14 @@ from django.http import HttpResponse
 from django.template import loader
 import requests
 
-from control.forms import LengthConverter, VolumeConverter, TimeConverter, CurrencyConverter, TemperatureConverter, \
-    WeightConverter
+from control.forms import (
+    LengthConverter,
+    VolumeConverter,
+    TimeConverter,
+    CurrencyConverter,
+    TemperatureConverter,
+    WeightConverter,
+)
 
 
 def home(request):
@@ -13,7 +19,7 @@ def home(request):
     return HttpResponse(template.render(request=request, context=context))
 
 
-metre_values = {
+METRE_VALUES = {
     'kilometre': 1000.0,
     'metre': 1.0,
     'centimetre': 0.01,
@@ -39,7 +45,7 @@ def length_converter(request):
             unit_to = form.cleaned_data['unit_to']
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * metre_values[unit] / metre_values[unit_to]
+            calculations = unit_value * METRE_VALUES[unit] / METRE_VALUES[unit_to]
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
@@ -51,7 +57,7 @@ def length_converter(request):
     return HttpResponse(template.render(request=request, context=context))
 
 
-volume_values = {
+VOLUME_VALUES = {
     'gallon': 0.264172,
     'quart': 1.056688,
     'pint': 2.113376,
@@ -81,7 +87,7 @@ def volume_converter(request):
             unit_to = form.cleaned_data['unit_to']
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * volume_values[unit_to] / volume_values[unit]
+            calculations = unit_value * VOLUME_VALUES[unit_to] / VOLUME_VALUES[unit]
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
@@ -93,7 +99,7 @@ def volume_converter(request):
     return HttpResponse(template.render(request=request, context=context))
 
 
-time_values = {
+TIME_VALUES = {
     'nanosecond': 10 ** -9,
     'microsecond': 1 ** -6,
     'millisecond': 0.001,
@@ -121,7 +127,7 @@ def time_converter(request):
             unit_to = form.cleaned_data['unit_to']
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * time_values[unit] / time_values[unit_to]
+            calculations = unit_value * TIME_VALUES[unit] / TIME_VALUES[unit_to]
             result = '{} {}s'.format(calculations, unit_to)
 
     else:
@@ -216,7 +222,7 @@ def temperature_converter(request):
     return HttpResponse(template.render(request=request, context=context))
 
 
-weight_values = {
+WEIGHT_VALUES = {
     'tonne': 10 ** 6,
     'kg': 1000,
     'g': 1,
@@ -242,7 +248,7 @@ def weight_converter(request):
             unit_to = form.cleaned_data['unit_to']
             unit_value = form.cleaned_data['unit_value']
 
-            calculations = unit_value * weight_values[unit] / weight_values[unit_to]
+            calculations = unit_value * WEIGHT_VALUES[unit] / WEIGHT_VALUES[unit_to]
             result = '{} {}'.format(calculations, unit_to)
 
     else:
