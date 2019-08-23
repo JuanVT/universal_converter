@@ -210,8 +210,7 @@ def temperature_converter(request):
                 elif unit_to == 'fahrenheit':
                     calculations = (unit_value * 9 / 5) - 459.67
 
-            else:
-                result = '{} {}'.format(calculations, unit_to)
+            result = '{} {}'.format(calculations, unit_to)
 
     else:
         form = TemperatureConverter()
