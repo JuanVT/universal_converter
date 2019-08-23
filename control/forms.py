@@ -2,7 +2,7 @@ from django import forms
 
 from control.models import Currency
 
-length_choices = [
+LENGTH_CHOICES = [
     ('', 'Select..'),
     ("metre", "Metre"),
     ("kilometre", "Kilometre"),
@@ -18,12 +18,12 @@ length_choices = [
 
 
 class LengthConverter(forms.Form):
-    unit = forms.ChoiceField(label='Unit', choices=length_choices)
-    unit_to = forms.ChoiceField(label='Unit to', choices=length_choices)
+    unit = forms.ChoiceField(label='Unit', choices=LENGTH_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=LENGTH_CHOICES)
     unit_value = forms.FloatField(initial=0)
 
 
-volume_choices = [
+VOLUME_CHOICES = [
     ('', 'Select..'),
     ("gallon", "Gallons"),
     ("quart", "Quarts"),
@@ -40,12 +40,12 @@ volume_choices = [
 
 
 class VolumeConverter(forms.Form):
-    unit = forms.ChoiceField(label='Unit', choices=volume_choices)
-    unit_to = forms.ChoiceField(label='Unit to', choices=volume_choices)
+    unit = forms.ChoiceField(label='Unit', choices=VOLUME_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=VOLUME_CHOICES)
     unit_value = forms.FloatField(initial=0)
 
 
-time_choices = [
+TIME_CHOICES = [
     ('', 'Select..'),
     ('nanosecond', 'Nanosecond'),
     ('microsecond', 'Microsecond'),
@@ -63,8 +63,8 @@ time_choices = [
 
 
 class TimeConverter(forms.Form):
-    unit = forms.ChoiceField(label='Unit', choices=time_choices)
-    unit_to = forms.ChoiceField(label='Unit to', choices=time_choices)
+    unit = forms.ChoiceField(label='Unit', choices=TIME_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=TIME_CHOICES)
     unit_value = forms.FloatField(initial=0)
 
 
@@ -77,7 +77,7 @@ class CurrencyConverter(forms.Form):
     unit_value = forms.FloatField(initial=0)
 
 
-temperature_choices = [
+TEMPERATURE_CHOICES = [
     ('', 'Select..'),
     ('celsius', 'Celsius'),
     ('kelvin', 'Kelvin'),
@@ -86,6 +86,27 @@ temperature_choices = [
 
 
 class TemperatureConverter(forms.Form):
-    unit = forms.ChoiceField(label='Unit', choices=temperature_choices)
-    unit_to = forms.ChoiceField(label='Unit to', choices=temperature_choices)
+    unit = forms.ChoiceField(label='Unit', choices=TEMPERATURE_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=TEMPERATURE_CHOICES)
+    unit_value = forms.FloatField(initial=0)
+
+
+WEIGHT_CHOICES = [
+    ('', 'Select..'),
+    ('tonne', 'Tonne'),
+    ('kg', 'Kilograms'),
+    ('g', 'grams'),
+    ('mg', 'Milligram'),
+    ('micro gram', 'Micro gram'),
+    ('imperial ton', 'Imperial Ton'),
+    ('us ton', 'US Ton'),
+    ('stone', 'Stone'),
+    ('pound', 'Pound'),
+    ('ounce', 'Ounce'),
+]
+
+
+class WeightConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=WEIGHT_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=WEIGHT_CHOICES)
     unit_value = forms.FloatField(initial=0)
