@@ -110,3 +110,19 @@ class WeightConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=WEIGHT_CHOICES)
     unit_to = forms.ChoiceField(label='Unit to', choices=WEIGHT_CHOICES)
     unit_value = forms.FloatField(initial=0)
+
+
+SPEED_CHOICES = [
+    ('', 'Select..'),
+    ('Miles per hour', 'Miles per hour'),
+    ('metre per second', 'Metre per second'),
+    ('kilometre per hour', 'Kilometre per hour'),
+    ('knot', 'knot'),
+
+]
+
+
+class SpeedConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=SPEED_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=SPEED_CHOICES)
+    unit_value = forms.FloatField(initial=0)
