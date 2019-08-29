@@ -114,7 +114,8 @@ class WeightConverter(forms.Form):
 
 SPEED_CHOICES = [
     ('', 'Select..'),
-    ('Miles per hour', 'Miles per hour'),
+    ('miles per hour', 'Miles per hour'),
+    ('foot per second', 'Foot per second'),
     ('metre per second', 'Metre per second'),
     ('kilometre per hour', 'Kilometre per hour'),
     ('knot', 'knot'),

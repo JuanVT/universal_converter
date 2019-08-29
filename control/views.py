@@ -9,7 +9,7 @@ from control.forms import (
     CurrencyConverter,
     TemperatureConverter,
     WeightConverter,
-)
+    SpeedConverter)
 
 
 def home(request):
@@ -249,6 +249,39 @@ def weight_converter(request):
 
     else:
         form = WeightConverter()
+
+    context = {'form': form, 'result': result}
+
+    template = loader.get_template('control/generic_converter.html')
+    return HttpResponse(template.render(request=request, context=context))
+
+
+SPEED_VALUES = {
+    'miles per hour': 1,
+    'foot per second': 1.46667,
+    'metre per second': 0.44704,
+    'kilometre per hour': 1.60934,
+    'knot': 0.868976,
+}
+
+
+def speed_converter(request):
+    result = 0
+
+    if request.method == 'POST':
+        filled_form = SpeedConverter(request.POST)
+
+        if filled_form.is_valid():
+            form = filled_form
+            unit = form.cleaned_data['unit']
+            unit_to = form.cleaned_data['unit_to']
+            unit_value = form.cleaned_data['unit_value']
+
+            calculations = unit_value * SPEED_VALUES[unit_to] / SPEED_VALUES[unit]
+            result = '{} {}'.format(calculations, unit_to)
+
+    else:
+        form = SpeedConverter()
 
     context = {'form': form, 'result': result}
 

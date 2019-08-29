@@ -25,16 +25,17 @@ from control.views import (
     currency_converter,
     temperature_converter,
     weight_converter,
+    speed_converter,
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url(r'^$', home, name='home'),
-    url(r'^volume_converter/$', volume_converter, name='volume_converter'),
-    url(r'^length_converter/$', length_converter, name='length_converter'),
-    url(r'^time_converter/$', time_converter, name='time_converter'),
-    url(r'^currency_converter/$', currency_converter, name='currency_converter'),
-    url(r'^temperature_converter/$', temperature_converter, name='temperature_converter'),
-    url(r'^weight_converter/$', weight_converter, name='weight_converter'),
-    url(r'^speed_converter/$', speed_converter, name='speed_converter'),
+    path("admin/", admin.site.urls),
+    url(r"^$", home, name="home"),
+    url(r"^volume_converter/$", volume_converter, name="volume_converter"),
+    url(r"^length_converter/$", length_converter, name="length_converter"),
+    url(r"^time_converter/$", time_converter, name="time_converter"),
+    url(r"^currency_converter/$", currency_converter, name="currency_converter"),
+    url(r"^temperature_converter/$", temperature_converter, name="temperature_converter"),
+    url(r"^weight_converter/$", weight_converter, name="weight_converter"),
+    url(r"^speed_converter/$", speed_converter, name="speed_converter"),
 ]
