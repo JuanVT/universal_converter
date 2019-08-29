@@ -36,4 +36,5 @@ urlpatterns = [
     url(r'^currency_converter/$', currency_converter, name='currency_converter'),
     url(r'^temperature_converter/$', temperature_converter, name='temperature_converter'),
     url(r'^weight_converter/$', weight_converter, name='weight_converter'),
+    url(r'^speed_converter/$', speed_converter, name='speed_converter'),
 ]
