@@ -66,12 +66,12 @@ VOLUME_VALUES = {
     'cups': 4.226753,
     'tablespoon': 67.628045,
     'teaspoon': 202.884136,
-    'cubic inches': 61.023744,
-    'cubic feet': 0.035315,
-    'cubic yard': 0.001308,
+    'cubic_inches': 61.023744,
+    'cubic_feet': 0.035315,
+    'cubic_yard': 0.001308,
     'milliliter': 1000,
-    'cubic centimeter': 1000,
-    'cubic meter': 0.001,
+    'cubic_centimeter': 1000,
+    'cubic_meter': 0.001,
 }
 
 
@@ -223,9 +223,9 @@ WEIGHT_VALUES = {
     'kg': 1000,
     'g': 1,
     'mg': 0.001,
-    'micro gram': 10 ** -6,
-    'imperial ton': 1016046.91,
-    'us ton': 907184.74,
+    'micro_gram': 10 ** -6,
+    'imperial_ton': 1016046.91,
+    'us_ton': 907184.74,
     'stone': 6350.29,
     'pound': 453.592,
     'ounce': 28.349500000294
@@ -257,10 +257,10 @@ def weight_converter(request):
 
 
 SPEED_VALUES = {
-    'miles per hour': 1,
-    'foot per second': 1.46667,
-    'metre per second': 0.44704,
-    'kilometre per hour': 1.60934,
+    'miles_per_hour': 1,
+    'foot_per_second': 1.46667,
+    'metre_per_second': 0.44704,
+    'kilometre_per_hour': 1.60934,
     'knot': 0.868976,
 }
 

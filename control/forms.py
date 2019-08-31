@@ -32,10 +32,10 @@ VOLUME_CHOICES = [
     ("tablespoon", "Tablespoons"),
     ("pint", "Pints"),
     ("teaspoon", "Teaspoons"),
-    ("cubic inches", "Cubic Inches"),
+    ("cubic_inches", "Cubic Inches"),
     ("milliliter", "ml"),
-    ("cubic centimeter", "Cubic Centimeters"),
-    ("cubic meter", "Cubic Meter")
+    ("cubic_centimeter", "Cubic Centimeters"),
+    ("cubic_meter", "Cubic Meter")
 ]
 
 
@@ -97,8 +97,8 @@ WEIGHT_CHOICES = [
     ('kg', 'Kilograms'),
     ('g', 'grams'),
     ('mg', 'Milligram'),
-    ('micro gram', 'Micro gram'),
-    ('imperial ton', 'Imperial Ton'),
+    ('micro_gram', 'Micro gram'),
+    ('imperial_ton', 'Imperial Ton'),
     ('us ton', 'US Ton'),
     ('stone', 'Stone'),
     ('pound', 'Pound'),
@@ -114,11 +114,11 @@ class WeightConverter(forms.Form):
 
 SPEED_CHOICES = [
     ('', 'Select..'),
-    ('miles per hour', 'Miles per hour'),
-    ('foot per second', 'Foot per second'),
-    ('metre per second', 'Metre per second'),
-    ('kilometre per hour', 'Kilometre per hour'),
-    ('knot', 'knot'),
+    ('miles_per_hour', 'Miles per hour'),
+    ('foot_per_second', 'Foot per second'),
+    ('metre_per_second', 'Metre per second'),
+    ('kilometre_per_hour', 'Kilometre per hour'),
+    ('knot', 'Knot'),
 
 ]
 
