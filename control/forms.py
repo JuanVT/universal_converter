@@ -32,10 +32,10 @@ VOLUME_CHOICES = [
     ("tablespoon", "Tablespoons"),
     ("pint", "Pints"),
     ("teaspoon", "Teaspoons"),
-    ("cubic inches", "Cubic Inches"),
+    ("cubic_inches", "Cubic Inches"),
     ("milliliter", "ml"),
-    ("cubic centimeter", "Cubic Centimeters"),
-    ("cubic meter", "Cubic Meter")
+    ("cubic_centimeter", "Cubic Centimeters"),
+    ("cubic_meter", "Cubic Meter")
 ]
 
 
@@ -97,8 +97,8 @@ WEIGHT_CHOICES = [
     ('kg', 'Kilograms'),
     ('g', 'grams'),
     ('mg', 'Milligram'),
-    ('micro gram', 'Micro gram'),
-    ('imperial ton', 'Imperial Ton'),
+    ('micro_gram', 'Micro gram'),
+    ('imperial_ton', 'Imperial Ton'),
     ('us ton', 'US Ton'),
     ('stone', 'Stone'),
     ('pound', 'Pound'),
@@ -109,4 +109,21 @@ WEIGHT_CHOICES = [
 class WeightConverter(forms.Form):
     unit = forms.ChoiceField(label='Unit', choices=WEIGHT_CHOICES)
     unit_to = forms.ChoiceField(label='Unit to', choices=WEIGHT_CHOICES)
+    unit_value = forms.FloatField(initial=0)
+
+
+SPEED_CHOICES = [
+    ('', 'Select..'),
+    ('miles_per_hour', 'Miles per hour'),
+    ('foot_per_second', 'Foot per second'),
+    ('metre_per_second', 'Metre per second'),
+    ('kilometre_per_hour', 'Kilometre per hour'),
+    ('knot', 'Knot'),
+
+]
+
+
+class SpeedConverter(forms.Form):
+    unit = forms.ChoiceField(label='Unit', choices=SPEED_CHOICES)
+    unit_to = forms.ChoiceField(label='Unit to', choices=SPEED_CHOICES)
     unit_value = forms.FloatField(initial=0)
