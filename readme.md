@@ -28,11 +28,11 @@ pip install -r requirements.txt
 
 ### Run migrations for the SQL DB models
 ```
-python3 manage.py migrate
+python manage.py migrate
 ```
 ### Run the application
 ```
-python3 manage.py runserver
+python manage.py runserver
 ```
 
 ## Built With
