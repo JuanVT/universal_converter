@@ -63,15 +63,15 @@ VOLUME_VALUES = {
     'pint': 2.113376,
     'ounce': 33.814023,
     'litre': 1,
-    'cups': 4.226753,
+    'cup': 4.226753,
     'tablespoon': 67.628045,
     'teaspoon': 202.884136,
-    'cubic_inches': 61.023744,
+    'cubic_inch': 61.023744,
     'cubic_feet': 0.035315,
     'cubic_yard': 0.001308,
     'milliliter': 1000,
-    'cubic_centimeter': 1000,
-    'cubic_meter': 0.001,
+    'cubic_centimetre': 1000,
+    'cubic_metre': 0.001,
 }
 
 
@@ -257,7 +257,7 @@ def weight_converter(request):
 
 
 SPEED_VALUES = {
-    'miles_per_hour': 1,
+    'mile_per_hour': 1,
     'foot_per_second': 1.46667,
     'metre_per_second': 0.44704,
     'kilometre_per_hour': 1.60934,

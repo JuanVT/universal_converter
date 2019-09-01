@@ -25,17 +25,20 @@ class LengthConverter(forms.Form):
 
 VOLUME_CHOICES = [
     ('', 'Select..'),
-    ("gallon", "Gallons"),
-    ("quart", "Quarts"),
-    ("ounce", "Ounces"),
-    ("litre", "Litres"),
-    ("tablespoon", "Tablespoons"),
-    ("pint", "Pints"),
-    ("teaspoon", "Teaspoons"),
-    ("cubic_inches", "Cubic Inches"),
-    ("milliliter", "ml"),
-    ("cubic_centimeter", "Cubic Centimeters"),
-    ("cubic_meter", "Cubic Meter")
+    ("gallon", "Gallon"),
+    ("quart", "Quart"),
+    ("ounce", "Ounce"),
+    ("litre", "Litre"),
+    ("cup", "Cup"),
+    ("tablespoon", "Tablespoon"),
+    ("teaspoon", "Teaspoon"),
+    ("pint", "Pint"),
+    ("cubic_inch", "Cubic inch"),
+    ("cubic_feet", "Cubic Feet"),
+    ("cubic_yard", "Cubic yard"),
+    ("milliliter", "Milliliter"),
+    ("cubic_centimetre", "Cubic centimetre"),
+    ("cubic_metre", "Cubic metre")
 ]
 
 
@@ -95,11 +98,11 @@ WEIGHT_CHOICES = [
     ('', 'Select..'),
     ('tonne', 'Tonne'),
     ('kg', 'Kilograms'),
-    ('g', 'grams'),
+    ('g', 'Grams'),
     ('mg', 'Milligram'),
     ('micro_gram', 'Micro gram'),
-    ('imperial_ton', 'Imperial Ton'),
-    ('us ton', 'US Ton'),
+    ('imperial_ton', 'Imperial ton'),
+    ('us_ton', 'US ton'),
     ('stone', 'Stone'),
     ('pound', 'Pound'),
     ('ounce', 'Ounce'),
@@ -114,12 +117,11 @@ class WeightConverter(forms.Form):
 
 SPEED_CHOICES = [
     ('', 'Select..'),
-    ('miles_per_hour', 'Miles per hour'),
+    ('mile_per_hour', 'Mile per hour'),
     ('foot_per_second', 'Foot per second'),
     ('metre_per_second', 'Metre per second'),
     ('kilometre_per_hour', 'Kilometre per hour'),
     ('knot', 'Knot'),
-
 ]
 
 
